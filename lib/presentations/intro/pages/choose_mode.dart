@@ -1,13 +1,15 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
+import 'package:spotify/common/widgets/gesture/gesture_action_choose_mode.dart';
 import 'package:spotify/core/config/assets/app_images.dart';
 import 'package:spotify/core/config/assets/app_vectors.dart';
 import 'package:spotify/core/config/theme/app_color.dart';
-import 'package:spotify/presentations/intro/pages/choose_mode.dart';
 
-class GetStartedPage extends StatelessWidget {
-  const GetStartedPage({super.key});
+class ChooseModePage extends StatelessWidget {
+  const ChooseModePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class GetStartedPage extends StatelessWidget {
                 image: DecorationImage(
                   fit: BoxFit.fill,
                   image: AssetImage(
-                    AppImages.introBackground
+                    AppImages.chooseModeBackground
                   )
                 )
               ),
@@ -47,32 +49,35 @@ class GetStartedPage extends StatelessWidget {
                     ),
                     const Spacer(),
                     Text(
-                      'Enjoy Listening To Music',
+                      'Choose your mode',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
                         fontSize: 18,
                       ),
                     ),
-                    const SizedBox(height: 16,),
-                    Text(
-                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                      'Sagittis enim purus sed phasellus. Cursus ornare id '
-                      'scelerisque aliquam.',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        fontSize: 14,
-                        color: AppColor.grey,
-                      ),
-                      textAlign: TextAlign.center,
+                    const SizedBox(height: 14,),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        GestureActionChooseMode(
+                          title: 'Light Mode',
+                          icon: Icons.wb_sunny,
+                        ),
+                        const SizedBox(width: 48,),
+                        GestureActionChooseMode(
+                          title: 'Dark Mode',
+                          icon: Icons.dark_mode,
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 16,),
+                    const SizedBox(height: 48,),
                     BasicAppButton(
                       onPressed: () => {
                         Navigator.push(context, 
                         MaterialPageRoute(builder: (context) => const ChooseModePage(),))
                       },
-                      title: 'Get Started',
+                      title: 'Continue',
                     ),
                   ],
                 ),
@@ -83,4 +88,4 @@ class GetStartedPage extends StatelessWidget {
       ),
     );
   }
-} 
+}
