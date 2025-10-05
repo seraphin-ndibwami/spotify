@@ -73,10 +73,7 @@ class ChooseModePage extends StatelessWidget {
                     ),
                     const SizedBox(height: 48,),
                     BasicAppButton(
-                      onPressed: () => {
-                        Navigator.push(context, 
-                        MaterialPageRoute(builder: (context) => const ChooseModePage(),))
-                      },
+                      onPressed: () => {},
                       title: 'Continue',
                     ),
                   ],
