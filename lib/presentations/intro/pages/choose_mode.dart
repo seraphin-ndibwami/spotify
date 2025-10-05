@@ -63,11 +63,13 @@ class ChooseModePage extends StatelessWidget {
                         GestureActionChooseMode(
                           title: 'Light Mode',
                           icon: Icons.wb_sunny,
+                          themeMode: ThemeMode.light,
                         ),
                         const SizedBox(width: 48,),
                         GestureActionChooseMode(
                           title: 'Dark Mode',
                           icon: Icons.dark_mode,
+                          themeMode: ThemeMode.dark,
                         ),
                       ],
                     ),
